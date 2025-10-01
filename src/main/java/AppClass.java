@@ -20,6 +20,7 @@ import java.util.stream.Stream;
 
 public class AppClass  {
     public static final  void main(String [] args) throws IOException {
+        System.out.println("github-activity ");
         Scanner input = new Scanner(System.in);
 
         String userName = input.nextLine();
