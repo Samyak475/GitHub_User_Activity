@@ -88,6 +88,24 @@ class Repo{
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Payload{
     public List<Commits> commits;
+    public String ref;
+    public  String ref_type;
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    public String getRef_type() {
+        return ref_type;
+    }
+
+    public void setRef_type(String ref_type) {
+        this.ref_type = ref_type;
+    }
 
     public List<Commits> getCommits() {
         return commits;
