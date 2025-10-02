@@ -37,11 +37,11 @@ public class AppClass  {
         });;
 //        System.out.println(response.body());
     for(GitExtract dt : data){
-        System.out.println(dt.getType());
-        System.out.println(dt.getPayload().getCommits());
-        System.out.println(dt.getActor().getLogin());
-        System.out.println(dt.getRepo().getName());
-        System.out.println("*****************************************************************************************");
+//        System.out.println(dt.getType());
+//        System.out.println(dt.getPayload().getCommits());
+//        System.out.println(dt.getActor().getLogin());
+//        System.out.println(dt.getRepo().getName());
+//        System.out.println("*****************************************************************************************");
 
         if(dt.getType().compareTo("PushEvent")==0 && dt.getPayload()!=null &&dt.getPayload().getCommits() !=null){
             System.out.println("Here for repository "+dt.getRepo().getName()+"Printing all the commits ***************************");
@@ -50,8 +50,12 @@ public class AppClass  {
            }
         }
         else if(dt.getType().compareTo("CreateEvent")==0){
-            System.out.println("New "+dt.getPayload().getRef_type()+" is created for "+dt.getRepo().getName()+" with name "+dt.getPayload().getRef());
+            System.out.println("New "+dt.getPayload().getRef_type()+" is created for "+dt.getRepo().getName().substring(10)+" with name "+dt.getPayload().getRef());
         }
+        else if(dt.getType().compareTo("WatchEvent")==0){
+            System.out.println("User "+dt.getActor().getLogin()+" has stared the repository "+ dt.getRepo().getName().substring(10));
+        }
+
 
 
     }
